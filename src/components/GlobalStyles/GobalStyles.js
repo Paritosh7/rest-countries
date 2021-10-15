@@ -139,6 +139,7 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     background-color: hsl(0deg 0% 95%);
+    font-family: 'Nunito Sans', sans-serif;
   }
 `;
 

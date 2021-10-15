@@ -8,10 +8,18 @@ import Card from "./Card";
  */
 
 const Main = ({ countries }) => {
+  const [countriesState, setCountriesState] = React.useState(() =>
+    countries ? countries : []
+  );
+
+  React.useEffect(() => {
+    setCountriesState(countries);
+  }, [countries]);
+
   return (
     <main>
       <ul>
-        {countries.map((country) => {
+        {countriesState.map((country) => {
           const name = country.name.common;
           return (
             <li key={name}>

@@ -2,7 +2,7 @@ import React from "react";
 
 const Card = ({ country }) => {
   const name = country?.name?.common;
-  const population = country?.population;
+  const population = new Intl.NumberFormat().format(country?.population);
   const region = country?.region;
   const capital = country?.capital?.[0]
     ? country?.capital?.[0]
@@ -11,7 +11,7 @@ const Card = ({ country }) => {
 
   return (
     <article>
-      <img alt={`${name} flag`} src={flag} style={{ width: "100%" }}></img>
+      <img alt={`${name} flag`} src={flag} style={{ width: "20%" }}></img>
       <section>
         <h3>{name}</h3>
         <p>Population : {population}</p>

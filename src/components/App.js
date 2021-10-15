@@ -12,12 +12,26 @@ import Main from "./Main";
 
 function App() {
   const [countries, setCountries] = React.useState(() => []);
+  const [searchQuery, setSearchQuery] = React.useState(() => "");
+  let countriesBySearch = null;
+
+  function handleSearchQuery(value) {
+    countriesBySearch = countries.filter((country) => {
+      return (
+        country?.name?.common?.toString().toLowerCase().indexOf(searchQuery) >
+        -1
+      );
+    });
+
+    setSearchQuery(value);
+
+    console.log(countriesBySearch);
+  }
 
   React.useEffect(() => {
     (async () => {
       const response = await fetch("https://restcountries.com/v3.1/all");
       const jsonData = await response.json();
-      console.log(jsonData);
       setCountries(jsonData);
     })();
   }, []);
@@ -25,8 +39,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Functionalities />
-      <Main countries={countries} />
+      <Functionalities appSearchQueryChangeListener={handleSearchQuery} />
+      <Main
+        countries={searchQuery.length > 0 ? countriesBySearch : countries}
+      />
       <GlobalStyles />
     </div>
   );
