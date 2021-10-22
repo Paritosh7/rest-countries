@@ -13,7 +13,7 @@ const Search = ({ functionalitiesQueryChangeListener }) => {
     <div>
       <input
         type="search"
-        placeholder="Search for"
+        placeholder="Search for country"
         onChange={handleQueryChange}
       ></input>
     </div>

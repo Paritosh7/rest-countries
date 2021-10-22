@@ -7,7 +7,7 @@ import Card from "./Card";
  * 2. Adding error boundary
  */
 
-const Main = ({ countries }) => {
+const Main = ({ countries, searchQuery }) => {
   const [countriesState, setCountriesState] = React.useState(() =>
     countries ? countries : []
   );

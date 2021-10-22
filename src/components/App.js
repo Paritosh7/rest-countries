@@ -2,7 +2,7 @@ import GlobalStyles from "./GlobalStyles/GobalStyles";
 import React from "react";
 import Header from "./Header";
 import Functionalities from "./Functionalities";
-import Main from "./Main";
+import MainController from "./MainController";
 
 /**
  * TODO
@@ -13,25 +13,21 @@ import Main from "./Main";
 function App() {
   const [countries, setCountries] = React.useState(() => []);
   const [searchQuery, setSearchQuery] = React.useState(() => "");
-  let countriesBySearch = null;
+  const [filter, setFilter] = React.useState(() => "");
 
   function handleSearchQuery(value) {
-    countriesBySearch = countries.filter((country) => {
-      return (
-        country?.name?.common?.toString().toLowerCase().indexOf(searchQuery) >
-        -1
-      );
-    });
-
     setSearchQuery(value);
+  }
 
-    console.log(countriesBySearch);
+  function handleFilterChange(value) {
+    setFilter(value);
   }
 
   React.useEffect(() => {
     (async () => {
       const response = await fetch("https://restcountries.com/v3.1/all");
       const jsonData = await response.json();
+      console.log(jsonData);
       setCountries(jsonData);
     })();
   }, []);
@@ -39,9 +35,14 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Functionalities appSearchQueryChangeListener={handleSearchQuery} />
-      <Main
-        countries={searchQuery.length > 0 ? countriesBySearch : countries}
+      <Functionalities
+        appSearchQueryChangeListener={handleSearchQuery}
+        appFilterChangeListener={handleFilterChange}
+      />
+      <MainController
+        allCountries={countries}
+        searchQuery={searchQuery}
+        filter={filter}
       />
       <GlobalStyles />
     </div>
