@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Main from "./Main";
 
 function filterCountries(countries, filterVal) {
+  if (filterVal === "All") return countries;
+
   return countries.filter(
     (country) => country?.region.toString() === filterVal
   );
@@ -15,7 +17,7 @@ function searchCountries(countries, searchQuery) {
   });
 }
 
-const MainController = ({ allCountries, searchQuery, filter }) => {
+const MainController = ({ allCountries, searchQuery, filter = "All" }) => {
   const [countries, setCountries] = useState(() => allCountries);
   console.log(countries);
 

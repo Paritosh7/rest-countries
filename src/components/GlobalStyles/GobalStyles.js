@@ -145,6 +145,8 @@ ${
 }
 
   :root{
+    /** ReachUI style's warning not being suppressed */
+    --reach-dialog: 1;
     --color-dark-blue-dark-mode-elements : hsl(209, 23%, 22%);
     --color-very-dark-blue-dark-mode-background : hsl(207, 26%, 17%);
     --color-very-dark-blue-light-mode-text : hsl(200, 15%, 8%);
@@ -159,7 +161,6 @@ ${
   body {
     background-color: hsl(0deg 0% 95%);
     font-family: 'Nunito Sans', sans-serif;
-    
   }
 `;
 

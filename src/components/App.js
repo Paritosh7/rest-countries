@@ -8,6 +8,7 @@ import MainController from "./MainController";
  * TODO
  * 1. Make fetch generic
  * 2. Adding error boundary
+ * 3. Typography is an issue at the moment.
  */
 
 function App() {
