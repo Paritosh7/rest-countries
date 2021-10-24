@@ -15,9 +15,15 @@ const Card = ({ country }) => {
       <FlagImage alt={`${name} flag`} src={flag}></FlagImage>
       <Data>
         <h2>{name}</h2>
-        <p>Population : {population}</p>
-        <p>Region : {region}</p>
-        <p>Capital : {capital}</p>
+        <p>
+          <Bold>Population :</Bold> {population}
+        </p>
+        <p>
+          <Bold>Region :</Bold> {region}
+        </p>
+        <p>
+          <Bold>Capital :</Bold> {capital}
+        </p>
       </Data>
     </Article>
   );
@@ -42,12 +48,16 @@ const Data = styled.section`
 
   h2 {
     font-weight: 600;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     margin: 16px 0;
   }
   p {
     margin: 8px 0;
   }
+`;
+
+const Bold = styled.span`
+  font-weight: 600;
 `;
 
 export default Card;

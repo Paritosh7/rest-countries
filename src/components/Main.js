@@ -8,7 +8,7 @@ import Card from "./Card";
  * 2. Adding error boundary
  */
 
-const Main = ({ countries, searchQuery }) => {
+const Main = ({ countries }) => {
   const [countriesState, setCountriesState] = React.useState(() =>
     countries ? countries : []
   );
@@ -34,7 +34,7 @@ const Main = ({ countries, searchQuery }) => {
 };
 
 const MainWrapper = styled.main`
-  margin-top: 16px;
+  margin-top: 24px;
 `;
 
 const ListWrapper = styled.ul`
@@ -46,8 +46,8 @@ const ListWrapper = styled.ul`
 
 const List = styled.li`
   flex: 1 1 200px;
-  min-width: 190px;
-  max-width: 300px;
+  min-width: 200px;
+  max-width: 320px;
   margin-left: 16px;
   margin-right: 16px;
 `;

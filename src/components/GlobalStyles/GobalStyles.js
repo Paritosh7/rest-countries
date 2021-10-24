@@ -149,12 +149,12 @@ ${
     --color-very-dark-blue-dark-mode-background : hsl(207, 26%, 17%);
     --color-very-dark-blue-light-mode-text : hsl(200, 15%, 8%);
     --color-dark-grey-light-mode-input : hsl(0, 0%, 52%);
-    --color-light-gray-light-mode-background : hsl(0, 0%, 98%);
+    --color-very-light-gray-light-mode-background : hsl(0, 0%, 98%);
     --color-white-dark-mode-text-light-mode-elements : hsl(0, 0%, 100%) ;
   }
 
   html {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
   body {
     background-color: hsl(0deg 0% 95%);

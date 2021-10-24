@@ -16,11 +16,6 @@ function searchCountries(countries, searchQuery) {
 }
 
 const MainController = ({ allCountries, searchQuery, filter }) => {
-  console.log("all countries : ", allCountries);
-  console.log("search query : ", searchQuery);
-  console.log("filter : ", filter);
-  console.log(allCountries);
-
   const [countries, setCountries] = useState(() => allCountries);
   console.log(countries);
 

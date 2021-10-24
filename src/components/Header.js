@@ -7,7 +7,7 @@ const Header = () => {
     <HeaderWrapper>
       <Heading>Where in the world?</Heading>
       <ModeWrapper>
-        <MdOutlineDarkMode />
+        <MdOutlineDarkMode style={{ marginRight: "4px" }} />
         <p>Dark Mode</p>
       </ModeWrapper>
     </HeaderWrapper>
@@ -25,7 +25,7 @@ const Heading = styled.h1`
   font-weight: 800;
 `;
 
-const ModeWrapper = styled.label`
+const ModeWrapper = styled.div`
   display: flex;
 `;
 

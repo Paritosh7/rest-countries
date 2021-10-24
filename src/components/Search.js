@@ -13,10 +13,19 @@ const Search = ({ functionalitiesQueryChangeListener }) => {
 
   return (
     <SearchWrapper>
-      <AiOutlineSearch />
+      <SearchIconWrapper aria-label="search-input">
+        <AiOutlineSearch
+          style={{
+            height: "100%",
+            width: "90%",
+            color: "var(--color-dark-grey-light-mode-input)",
+          }}
+        />
+      </SearchIconWrapper>
       <SearchInput
+        name="search-input"
         type="search"
-        placeholder="Search for country"
+        placeholder="Search for country..."
         onChange={handleQueryChange}
       ></SearchInput>
     </SearchWrapper>
@@ -26,10 +35,13 @@ const Search = ({ functionalitiesQueryChangeListener }) => {
 const SearchWrapper = styled.div`
   /* border: 1px solid var(--color-white-dark-mode-text-light-mode-elements); */
   display: flex;
-  align-items: center;
-  padding-left: 16px;
+  padding-left: 24px;
   border-radius: 4px;
   background-color: var(--color-white-dark-mode-text-light-mode-elements);
+`;
+
+const SearchIconWrapper = styled.label`
+  width: 20px;
 `;
 
 const SearchInput = styled.input`
@@ -38,6 +50,12 @@ const SearchInput = styled.input`
   flex: 1 1 70%;
   border: none;
   border-radius: 4px;
+
+  ::placeholder {
+    font-size: 1rem;
+    color: var(--color-dark-grey-light-mode-input);
+    opacity: 0.3;
+  }
 `;
 
 export default Search;
