@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 import Card from "./Card";
 
@@ -21,7 +22,7 @@ const Main = ({ countries }) => {
     <MainWrapper>
       <ListWrapper>
         {countriesState.map((country) => {
-          const name = country.name.common;
+          const name = country?.name?.common;
           return (
             <List key={name}>
               <Card country={country} />

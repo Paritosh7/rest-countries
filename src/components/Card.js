@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 
 const Card = ({ country }) => {
@@ -11,23 +12,30 @@ const Card = ({ country }) => {
   const flag = country?.flags?.svg ? country?.flags?.svg : "none";
 
   return (
-    <Article>
-      <FlagImage alt={`${name} flag`} src={flag}></FlagImage>
-      <Data>
-        <h2>{name}</h2>
-        <p>
-          <Bold>Population :</Bold> {population}
-        </p>
-        <p>
-          <Bold>Region :</Bold> {region}
-        </p>
-        <p>
-          <Bold>Capital :</Bold> {capital}
-        </p>
-      </Data>
-    </Article>
+    <RouterLink to={`/${name}`}>
+      <Article>
+        <FlagImage alt={`${name} flag`} src={flag}></FlagImage>
+        <Data>
+          <h2>{name}</h2>
+          <p>
+            <Bold>Population :</Bold> {population}
+          </p>
+          <p>
+            <Bold>Region :</Bold> {region}
+          </p>
+          <p>
+            <Bold>Capital :</Bold> {capital}
+          </p>
+        </Data>
+      </Article>
+    </RouterLink>
   );
 };
+
+const RouterLink = styled(Link)`
+  color: inherit;
+  text-decoration: unset;
+`;
 
 const Article = styled.article`
   border-radius: 4px;

@@ -1,9 +1,8 @@
-import GlobalStyles from "./GlobalStyles/GobalStyles";
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Country from "./Country";
 import Header from "./Header";
-import Functionalities from "./Functionalities";
-import MainController from "./MainController";
-
+import Home from "./Home";
 /**
  * TODO
  * 1. Make fetch generic
@@ -12,41 +11,14 @@ import MainController from "./MainController";
  */
 
 function App() {
-  const [countries, setCountries] = React.useState(() => []);
-  const [searchQuery, setSearchQuery] = React.useState(() => "");
-  const [filter, setFilter] = React.useState(() => "");
-
-  function handleSearchQuery(value) {
-    setSearchQuery(value);
-  }
-
-  function handleFilterChange(value) {
-    setFilter(value);
-  }
-
-  React.useEffect(() => {
-    (async () => {
-      const response = await fetch("https://restcountries.com/v3.1/all");
-      const jsonData = await response.json();
-      console.log(jsonData);
-      setCountries(jsonData);
-    })();
-  }, []);
-
   return (
-    <div className="App">
+    <Router>
       <Header />
-      <Functionalities
-        appSearchQueryChangeListener={handleSearchQuery}
-        appFilterChangeListener={handleFilterChange}
-      />
-      <MainController
-        allCountries={countries}
-        searchQuery={searchQuery}
-        filter={filter}
-      />
-      <GlobalStyles />
-    </div>
+      <Switch>
+        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/:name" component={Country}></Route>
+      </Switch>
+    </Router>
   );
 }
 
